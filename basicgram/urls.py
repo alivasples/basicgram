@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from basicgram import views as local_views
+from posts import views as post_views
+from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sort/', local_views.sort_numbers),
+    path('hi/<str:name>/<int:age>', local_views.say_hi),
+    path('posts', post_views.list_posts),
 ]
